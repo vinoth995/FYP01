@@ -1,0 +1,102 @@
+ReviewApp Java Application
+
+Introduction
+
+The ReviewApp Java application is a simple client-server system that allows users to add reviews for different places, add new places, and view top-rated places and reviewers. The application is built using Java and utilizes socket programming for communication between the client and server.
+
+Table of Contents
+
+Overview
+Getting Started
+Prerequisites
+Running the Server
+Running the Client
+Code Structure
+Server Side
+Client Side
+Communication Protocol
+Sample Commands
+Error Handling
+Assumptions and Considerations
+Dependencies
+Future Improvements
+Conclusion
+Overview
+
+The application consists of a server program (ServerProgram) and a client program (MainApplication). The server manages a list of places and user reviews, while the client provides a graphical user interface (GUI) for users to interact with the system.
+
+Getting Started
+
+Prerequisites
+Java Development Kit (JDK) installed on your machine.
+An Integrated Development Environment (IDE) such as IntelliJ IDEA or Eclipse.
+Running the Server
+Open the project in your IDE.
+Locate the ServerProgram class.
+Run the main method in ServerProgram.
+The server will start listening for incoming connections on port 5900.
+
+Running the Client
+Open the project in your IDE.
+Locate the LoginScreen class.
+Run the main method in LoginScreen.
+Enter a valid user ID to log in. After successful login, the main application window (MainApplication) will open.
+
+Code Structure
+
+Server Side
+ServerProgram:
+Initializes a ReviewApp instance.
+Listens for incoming connections and spawns a new ClientHandler thread for each client.
+ClientHandler:
+Manages communication with a single client.
+Receives user ID and performs various actions based on client requests.
+ReviewApp:
+Manages the core logic of the application.
+Handles adding places and reviews, viewing top places and reviewers.
+Client Side
+MainApplication:
+GUI application for the client.
+Provides a user interface to add reviews, add places, and view top places and reviewers.
+LoginScreen:
+Simple login GUI to get the user ID before starting the main application.
+Client:
+Manages communication with the server.
+Sends requests and receives responses through sockets.
+Communication Protocol
+
+The communication between the server and the client is text-based.
+The client sends commands like "ADD_REVIEW," "ADD_PLACE," "VIEW_TOP_PLACES," etc.
+The server processes these commands and sends back responses.
+Sample Commands
+
+Add Review:
+Client: ADD_REVIEW MarinaBaySands Excellent_view
+Server Response: Added review for MarinaBaySands
+Add Place:
+Client: ADD_PLACE UniversalStudios
+Server Response: Added place UniversalStudios
+View Top Places:
+Client: VIEW_TOP_PLACES
+Server Response: MarinaBaySands: 15 points, SentosaIsland: 10 points, ...
+View Top Reviewers:
+Client: VIEW_TOP_REVIEWERS
+Server Response: User ID: 1234, Review Score: 15, User ID: 1112, Review Score: 10, ...
+Error Handling
+
+The server handles errors by sending error messages to the client.
+Clients display error messages received from the server.
+Assumptions and Considerations
+
+User IDs are integers, and they need to be provided during login.
+Reviews earn a fixed number of points (3 points per review).
+The system has some pre-seeded data for users, places, and reviews for testing purposes.
+Dependencies
+
+The code does not have external dependencies beyond the Java standard library.
+Future Improvements
+
+Implementing a more robust authentication mechanism.
+Enhancing the GUI to provide better user feedback.
+Implementing more features such as deleting reviews, updating reviews, etc.
+Handling multi-threading and potential synchronization issues in the server.
